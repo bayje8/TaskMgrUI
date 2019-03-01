@@ -38,8 +38,10 @@ export class AddtaskComponent implements OnInit {
     this.aTask.startDate = this.addTaskForm.get("startdate").value
     this.aTask.endDate = ""
     console.log(this.aTask);
-    this.taskService.addTask(this.aTask).subscribe((err) => { console.log(err) });
-    this.router.navigateByUrl("");
+    this.taskService.addTask(this.aTask).subscribe((err) => { console.log(err) 
+      this.router.navigateByUrl("");
+    });
+    
   }
 
   reset() {

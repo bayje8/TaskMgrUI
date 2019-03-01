@@ -38,7 +38,7 @@ export class ViewtaskComponent implements OnInit {
 
   endTask(endingTask:TaskVO, endingTaskID: number){
     endingTask.endDate = formatDate(new Date(), 'yyyy-MM-dd','en');
-    this.taskService.updateTask(endingTaskID,endingTask);
+    this.taskService.updateTask(endingTaskID,endingTask).subscribe(data => console.log(data));
     this.router.navigateByUrl("");
   }
 

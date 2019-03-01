@@ -66,9 +66,11 @@ export class UpdatetaskComponent implements OnInit {
     this.aTask.startDate = this.updateTaskForm.get("startDate").value;
     this.aTask.endDate = this.updateTaskForm.get("endDate").value;
 
-    this.taskService.updateTask(this.task_id,this.aTask);
+   this.taskService.updateTask(this.task_id,this.aTask).subscribe(data => {console.log(data)
+   this.router.navigateByUrl("");
+   });
 
-    this.router.navigateByUrl("");
+   
   }
 
   cancel() {

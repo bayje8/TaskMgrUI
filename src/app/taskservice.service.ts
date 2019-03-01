@@ -39,12 +39,14 @@ export class TaskserviceService {
   }
 
   updateTask(id: number, task: TaskVO): Observable<any> {
-    console.log(JSON.stringify(task));
+    console.log("updating into Task table");
+    console.log(task);    
     console.log(id);
-    return this.http.put(endpoint + 'tasks/' + id, JSON.stringify(task), httpOptions).pipe(tap(_ => console.log('updated task id=${id}')), catchError(this.handleError<any>('updateTask')));
+    return this.http.put<any>(endpoint + 'tasks/' + id, JSON.stringify(task), httpOptions).pipe(tap(_ => console.log('updated task id=${id}')), catchError(this.handleError<any>('updateTask')));
   }
 
   addTask(task: TaskVO): Observable<any> {
+    console.log("Adding into Task table");
     console.log(task);
     return this.http.post<any>(endpoint + 'tasks', JSON.stringify(task), httpOptions).pipe(tap((task) => console.log('added task id=${task.task_id}')), catchError(this.handleError<any>('addTask')));
   }
