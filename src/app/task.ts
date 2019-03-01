@@ -1,9 +1,9 @@
 export class TaskVO{
     task_id:number;
     parent_id:number;
-    task:string;
-    parentTask:string;
+    task:string;    
     startDate:string;
     endDate:string;
     priority:number;
+    parentTask:string;
 }
